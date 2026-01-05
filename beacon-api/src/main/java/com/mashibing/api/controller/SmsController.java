@@ -30,6 +30,9 @@ public class SmsController {
             log.info("【接口模块-单条短信Controller】 参数不合法 msg = {}",msg);
             return R.error(SmsCodeEnum.PARAMETER_ERROR.getCode(),msg);
         }
+        //=========================构建StandardSubmit，各种封装校验=========================================
+
+        //=========================发送到MQ，交给策略模块处理=========================================
         return R.ok();
     }
 }

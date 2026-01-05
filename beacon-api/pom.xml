@@ -53,6 +53,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
+        <!--        一些公共的组件会放到当前common中-->
+        <dependency>
+            <groupId>com.mashibing</groupId>
+            <artifactId>beacon-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

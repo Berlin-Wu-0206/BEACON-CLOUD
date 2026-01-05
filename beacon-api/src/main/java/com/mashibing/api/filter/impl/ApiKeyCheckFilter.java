@@ -1,7 +1,6 @@
 package com.mashibing.api.filter.impl;
 
 import com.mashibing.api.filter.CheckFilter;
-import com.mashibing.api.form.SmsForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,7 @@ public class ApiKeyCheckFilter implements CheckFilter {
 
 
     @Override
-    public void check(SmsForm smsForm) {
+    public void check(Object object) {
         log.info("【接口模块-校验apikey】   校验ing…………");
     }
 }

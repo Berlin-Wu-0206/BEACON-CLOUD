@@ -1,7 +1,5 @@
 package com.mashibing.api.filter;
 
-import com.mashibing.api.form.SmsForm;
-
 /**
  *
  * @author zjw
@@ -11,7 +9,7 @@ public interface CheckFilter {
 
     /**
      * 校验！！！！
-     * @param smsForm
+     * @param object
      */
-    void check(SmsForm smsForm);
+    void check(Object object);
 }
