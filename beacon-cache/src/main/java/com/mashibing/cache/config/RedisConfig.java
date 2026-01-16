@@ -19,10 +19,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
+ * 因为添加了飞马框架的依赖，这些可以不用写啦。
  * 设置RedisTemplate的序列化方式
  * @author zjw
  * @description
  */
+/*
 @Configuration
 public class RedisConfig {
 
@@ -76,3 +78,4 @@ public class RedisConfig {
 
 
 }
+*/
