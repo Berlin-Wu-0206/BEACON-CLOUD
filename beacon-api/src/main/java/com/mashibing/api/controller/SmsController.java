@@ -1,12 +1,14 @@
 package com.mashibing.api.controller;
 
-import com.mashibing.api.enums.SmsCodeEnum;
+import com.mashibing.api.filter.CheckFilterContext;
 import com.mashibing.api.form.SingleSendForm;
 import com.mashibing.api.util.R;
 import com.mashibing.api.vo.ResultVO;
+import com.mashibing.common.enums.ExceptionEnums;
 import com.mashibing.common.model.StandardSubmit;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.validation.BindingResult;
@@ -45,6 +47,9 @@ public class SmsController {
     private final String X_FORWARDED_FOR = "x-forwarded-for";
 
 
+    @Autowired
+    private CheckFilterContext checkFilterContext;
+
     /**
      * 单条验证短信接口
      * @param singleSendForm
@@ -58,7 +63,7 @@ public class SmsController {
         if (bindingResult.hasErrors()){
             String msg = bindingResult.getFieldError().getDefaultMessage();
             log.info("【接口模块-单条短信Controller】 参数不合法 msg = {}",msg);
-            return R.error(SmsCodeEnum.PARAMETER_ERROR.getCode(),msg);
+            return R.error(ExceptionEnums.PARAMETER_ERROR.getCode(),msg);
         }
         //=========================获取真实的IP地址=========================================
         String ip = this.getRealIP(req);
@@ -71,6 +76,9 @@ public class SmsController {
         submit.setText(singleSendForm.getText());
         submit.setState(singleSendForm.getState());
         submit.setUid(singleSendForm.getUid());
+
+        //=========================调用策略模式的校验链=========================================
+        checkFilterContext.check(submit);
 
         //=========================发送到MQ，交给策略模块处理=========================================
         return R.ok();

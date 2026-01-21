@@ -1,6 +1,7 @@
 package com.mashibing.api.filter;
 
 import com.mashibing.api.form.SingleSendForm;
+import com.mashibing.common.model.StandardSubmit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -28,14 +29,14 @@ public class CheckFilterContext {
     /**
      * 当前check方法用于管理校验链的顺序
      */
-    public void check(Object object) {
+    public void check(StandardSubmit submit) {
         // 单挑短信发送的策略
         //1. 将获取到filters基于,做切分
         String[] filterArray = filters.split(",");
         //2. 遍历数组即可
         for (String filter : filterArray) {
             CheckFilter checkFilter = checkFiltersMap.get(filter);
-            checkFilter.check(object);
+            checkFilter.check(submit);
         }
     }
 }

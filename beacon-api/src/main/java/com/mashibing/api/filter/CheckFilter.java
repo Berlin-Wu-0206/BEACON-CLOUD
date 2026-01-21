@@ -1,5 +1,7 @@
 package com.mashibing.api.filter;
 
+import com.mashibing.common.model.StandardSubmit;
+
 /**
  *
  * @author zjw
@@ -9,7 +11,7 @@ public interface CheckFilter {
 
     /**
      * 校验！！！！
-     * @param object
+     * @param submit
      */
-    void check(Object object);
+    void check(StandardSubmit submit);
 }
