@@ -37,8 +37,7 @@ public class ApiKeyCheckFilter implements CheckFilter {
         }
 
         //3. 正常封装数据
-        submit.setClientId(Long.parseLong(clientBusiness.get("clientId") + ""));
-        submit.setIp(clientBusiness.get("ipAddress") + "");
+        submit.setClientId(Long.parseLong(clientBusiness.get("id") + ""));
         log.info("【接口模块-校验apikey】 查询到客户信息 clientBusiness = {}",clientBusiness);
     }
 }

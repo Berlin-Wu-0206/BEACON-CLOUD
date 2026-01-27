@@ -46,4 +46,23 @@ public class CacheController {
         return value;
     }
 
+    @GetMapping("/cache/hget/{key}/{field}")
+    public Object hget(@PathVariable(value = "key")String key,@PathVariable(value = "field")String field){
+        log.info("【缓存模块】 hget方法，获取key ={}，field = {}的数据", key,field);
+        Object value = redisClient.getMapItem(key, field);
+        log.info("【缓存模块】 hget方法，获取key ={}，field = {} 的数据 value = {}", key,field,value);
+        return value;
+    }
+
+    @GetMapping("/cache/smember/{key}")
+    public Set smember(@PathVariable(value = "key")String key){
+        log.info("【缓存模块】 smember方法，获取key ={}的数据", key);
+        Set<Object> values = redisClient.sGet(key);
+        log.info("【缓存模块】 smember方法，获取key ={} 的数据 value = {}", key,values);
+        return values;
+    }
+
+
+
+
 }

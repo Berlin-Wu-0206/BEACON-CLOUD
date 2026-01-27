@@ -7,16 +7,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.*;
 
-@SpringBootTest
-@RunWith(SpringRunner.class)
 public class CheckFilterContextTest {
 
-    @Autowired
-    private CheckFilterContext checkFilterContext;
 
     @org.junit.Test
     public void check() {
-        Object obj = new Object();
-        checkFilterContext.check(null);
+        String xxx = "【】";
+        String sign = xxx.substring(1,xxx.indexOf("】"));
+        System.out.println(sign);
     }
 }
