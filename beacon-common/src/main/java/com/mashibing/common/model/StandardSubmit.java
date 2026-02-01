@@ -108,7 +108,13 @@ public class StandardSubmit {
      *  0-验证码短信 1-通知类短信 2-营销类短信
      */
     private int state;
+
+    /**
+     * 签名的id
+     */
+    private Long signId;
     // 后续再做封装~~~~
+
 
 
 }
