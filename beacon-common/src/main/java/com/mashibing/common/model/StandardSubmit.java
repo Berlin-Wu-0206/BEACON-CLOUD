@@ -58,7 +58,7 @@ public class StandardSubmit {
     private LocalDateTime sendTime;
 
     /**
-     * 当前短信的费用，计算短信内容的文字，70个字一条，超过部分，67个字一条
+     * 当前短信的费用，计算短信内容的文字，70个字一条，超过部分，67个字一条,单位（厘）
      */
     private Long fee;
 
