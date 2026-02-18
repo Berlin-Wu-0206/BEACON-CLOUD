@@ -16,7 +16,8 @@ public enum ExceptionEnums {
     ERROR_MOBILE(-5,"手机号格式不正确"),
     BALANCE_NOT_ENOUGH(-6,"客户余额不足"),
     PARAMETER_ERROR(-10,"参数不合法！"),
-    SNOWFLAKE_OUT_OF_RANGE(-11,"雪花算法的机器id或服务id超出最大范围！")
+    SNOWFLAKE_OUT_OF_RANGE(-11,"雪花算法的机器id或服务id超出最大范围！"),
+    SNOWFLAKE_TIME_BACK(-12,"雪花算法的服务器出现时间回拨问题！"),
     ;
     private Integer code;
 

@@ -6,6 +6,7 @@ import com.mashibing.api.util.R;
 import com.mashibing.api.vo.ResultVO;
 import com.mashibing.common.enums.ExceptionEnums;
 import com.mashibing.common.model.StandardSubmit;
+import com.mashibing.common.util.SnowFlakeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,10 @@ import javax.servlet.http.HttpServletRequest;
 @Slf4j
 @RefreshScope
 public class SmsController {
+
+    @Autowired
+    private SnowFlakeUtil snowFlakeUtil;
+
 
     /**
      * 客户端IP地址的请求头信息，多个用','隔开。
@@ -79,6 +84,9 @@ public class SmsController {
 
         //=========================调用策略模式的校验链=========================================
         checkFilterContext.check(submit);
+
+        //========================基于雪花算法生成唯一id，并添加到StandardSubmit对象中=========================================
+        submit.setSequenceId(snowFlakeUtil.nextId());
 
         //=========================发送到MQ，交给策略模块处理=========================================
         return R.ok();
