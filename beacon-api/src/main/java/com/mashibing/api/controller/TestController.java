@@ -15,9 +15,11 @@ public class TestController {
     @Autowired
     private CheckFilterContext checkFilterContext;
 
-    @GetMapping("/api/test")
+
+    @GetMapping("/test/api")
     public void test(){
         System.out.println("====================================");
         checkFilterContext.check(null);
     }
+
 }
