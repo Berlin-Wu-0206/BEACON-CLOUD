@@ -2,9 +2,11 @@ package com.mashibing.cache.controller;
 
 import com.msb.framework.redis.RedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -29,4 +31,17 @@ public class TestController {
         Map<String, Object> result = redisClient.getMap(key);
         return result;
     }
+    @GetMapping("/test/xxx")
+    public Map xxx(){
+        Map<String,Object> maps = new HashMap<>();
+        maps.put("1801003","北京 北京,电信");
+        maps.put("1734310","北京 北京,电信");
+        redisClient.pipelined(operations -> {
+            for (Map.Entry<String, Object> entry : maps.entrySet()) {
+                operations.opsForValue().set(entry.getKey(),entry.getValue());
+            }
+        });
+        return null;
+    }
+
 }
