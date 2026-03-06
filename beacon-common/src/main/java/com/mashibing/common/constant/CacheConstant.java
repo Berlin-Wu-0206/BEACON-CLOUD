@@ -23,6 +23,15 @@ public interface CacheConstant {
      * 客户的余额
      */
     String CLIENT_BALANCE = "client_balance:";
+    /**
+     * 号段补全
+     */
+    String PHASE = "phase:";
+
+    /**
+     *  敏感词前缀
+     */
+    String DIRTY_WORD = "dirty_word";
 
 
 }

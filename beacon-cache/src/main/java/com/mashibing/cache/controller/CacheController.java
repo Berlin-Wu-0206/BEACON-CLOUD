@@ -38,6 +38,13 @@ public class CacheController {
         redisClient.sAdd(key,value);
     }
 
+    @PostMapping(value = "/cache/saddstr/{key}")
+    public void saddStr(@PathVariable(value = "key")String key, @RequestBody String... value){
+        log.info("【缓存模块】 saddStr方法，存储key = {}，存储value = {}", key, value);
+        redisClient.sAdd(key,value);
+    }
+
+
     @GetMapping("/cache/hgetall/{key}")
     public Map hGetAll(@PathVariable(value = "key")String key){
         log.info("【缓存模块】 hGetAll方法，获取key ={} 的数据", key);
@@ -62,6 +69,23 @@ public class CacheController {
         return values;
     }
 
+    @PostMapping("/cache/pipeline/string")
+    public void pipelineString(@RequestBody Map<String,String> map){
+        log.info("【缓存模块】 pipelineString，获取到存储的数据，map的长度 ={}的数据", map.size());
+        redisClient.pipelined(operations -> {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                operations.opsForValue().set(entry.getKey(),entry.getValue());
+            }
+        });
+    }
+
+    @GetMapping(value = "/cache/get/{key}")
+    public Object get(@PathVariable(value = "key") String key) {
+        log.info("【缓存模块】 get方法，查询key = {}", key);
+        Object value = redisClient.get(key);
+        log.info("【缓存模块】 get方法，查询key = {}对应的value = {}", key,value);
+        return value;
+    }
 
 
 

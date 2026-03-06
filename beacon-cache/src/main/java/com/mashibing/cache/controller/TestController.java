@@ -31,17 +31,19 @@ public class TestController {
         Map<String, Object> result = redisClient.getMap(key);
         return result;
     }
-    @GetMapping("/test/xxx")
-    public Map xxx(){
-        Map<String,Object> maps = new HashMap<>();
-        maps.put("1801003","北京 北京,电信");
-        maps.put("1734310","北京 北京,电信");
+    // 管道测试
+    @PostMapping("/test/pipeline")
+    public String pipeline(){
+        Map<String,Object>  maps = new HashMap<>();
+        maps.put("1888888","北京 北京,移动");
+        maps.put("1888889","北京 北京,电信");
         redisClient.pipelined(operations -> {
             for (Map.Entry<String, Object> entry : maps.entrySet()) {
                 operations.opsForValue().set(entry.getKey(),entry.getValue());
             }
         });
-        return null;
+        return "ok";
     }
+
 
 }
