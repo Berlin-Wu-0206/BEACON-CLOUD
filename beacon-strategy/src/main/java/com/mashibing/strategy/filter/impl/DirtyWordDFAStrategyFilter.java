@@ -4,6 +4,7 @@ import com.mashibing.common.constant.CacheConstant;
 import com.mashibing.common.model.StandardSubmit;
 import com.mashibing.strategy.client.BeaconCacheClient;
 import com.mashibing.strategy.filter.StrategyFilter;
+import com.mashibing.strategy.util.DFAUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,12 +23,9 @@ import java.util.UUID;
  * @author zjw
  * @description
  */
-@Service(value = "dirtyword")
+@Service(value = "dfaDirtyWord")
 @Slf4j
-public class DirtyWordStrategyFilter implements StrategyFilter {
-
-    @Autowired
-    private BeaconCacheClient cacheClient;
+public class DirtyWordDFAStrategyFilter implements StrategyFilter {
 
     @Override
     public void strategy(StandardSubmit submit) {
@@ -35,24 +33,8 @@ public class DirtyWordStrategyFilter implements StrategyFilter {
         //1、 获取短信内容
         String text = submit.getText();
 
-        //2、 对短信内容进行分词，并且将分析内容存储到集合中
-        Set<String> contents = new HashSet<>();
-        StringReader reader = new StringReader(text);
-        IKSegmenter ik = new IKSegmenter(reader, false);
-        Lexeme lex = null;
-        while (true) {
-            try {
-                if ((lex = ik.next()) == null) break;
-            } catch (IOException e) {
-                log.info("【策略模块-敏感词校验】   IK分词器在处理短信内容时，出现异常 e = {}", e.getMessage());
-            }
-            contents.add(lex.getLexemeText());
-        }
-
-
-        //3、 调用Cache缓存模块的交集方法，拿到结果
-
-        Set<Object> dirtyWords = cacheClient.sinterStr(UUID.randomUUID().toString(), CacheConstant.DIRTY_WORD, contents.toArray(new String[]{}));
+        //2、 调用DFA查看敏感词
+        Set<String> dirtyWords = DFAUtil.getDirtyWord(text);
 
         //4、 根据返回的set集合，判断是否包含敏感词
         if (dirtyWords != null && dirtyWords.size() > 0) {

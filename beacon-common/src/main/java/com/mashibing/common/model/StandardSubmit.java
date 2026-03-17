@@ -70,7 +70,7 @@ public class StandardSubmit implements Serializable {
 
 
     /**
-     * 目标手机号的归属地区号  0451  0455 （策略模块）
+     * 目标手机号的归属地区号  0451  0455 （策略模块，三方查询不到，先不管）
      */
     private Integer areaCode;
 
@@ -94,6 +94,11 @@ public class StandardSubmit implements Serializable {
      */
     private int reportState;
 
+    /**
+     * 短信发送失败的原因是什么，记录在当前属性
+     */
+    private String errorMsg;
+
     // =============================================================================
     /**
      *  获取到的客户端真实IP地址
@@ -115,6 +120,10 @@ public class StandardSubmit implements Serializable {
      */
     private Long signId;
 
+    /**
+     * 是否携号转网，  isTransfer = true，代表做了携号转网的判断并且做了操作
+     */
+    private Boolean isTransfer = false;
 
     // 后续再做封装~~~~
 
