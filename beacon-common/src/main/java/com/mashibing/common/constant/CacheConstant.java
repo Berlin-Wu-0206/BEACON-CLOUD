@@ -48,5 +48,15 @@ public interface CacheConstant {
      */
     String TRANSFER = "transfer:";
 
+    /**
+     * 1分钟的限流规则的key
+     */
+    String LIMIT_MINUTES = "limit:minutes:";
+
+    /**
+     * 1小时的限流规则的key
+     */
+    String LIMIT_HOURS = "limit:hours:";
+
 
 }

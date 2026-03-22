@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 /**
  * 在接口模块-策略模块-短信网关模块需要做校验和封装的POJO类对象
@@ -57,6 +58,7 @@ public class StandardSubmit implements Serializable {
      * 短信的发送时间，当前系统时间
      */
     private LocalDateTime sendTime;
+
 
     /**
      * 当前短信的费用，计算短信内容的文字，70个字一条，超过部分，67个字一条,单位（厘）
@@ -124,6 +126,11 @@ public class StandardSubmit implements Serializable {
      * 是否携号转网，  isTransfer = true，代表做了携号转网的判断并且做了操作
      */
     private Boolean isTransfer = false;
+
+    /**
+     *  针对1小时限流规则存储的系统时间毫秒值
+     */
+    private Long oneHourLimitMilli;
 
     // 后续再做封装~~~~
 
