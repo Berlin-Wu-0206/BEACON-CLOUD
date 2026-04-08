@@ -116,6 +116,7 @@ public class PushReportListener {
         //3、得到响应后，确认是否为SUCCESS
         return flag;
     }
+
     /**
      * 判断状态报告是否推送成功，失败的话需要发送重试消息
      * @param report
