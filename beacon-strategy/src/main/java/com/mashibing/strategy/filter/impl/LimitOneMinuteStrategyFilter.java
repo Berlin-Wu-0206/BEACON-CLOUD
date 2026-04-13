@@ -9,7 +9,6 @@ import com.mashibing.strategy.client.BeaconCacheClient;
 import com.mashibing.strategy.filter.StrategyFilter;
 import com.mashibing.strategy.util.ErrorSendMsgUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.weaver.tools.cache.CacheStatistics;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

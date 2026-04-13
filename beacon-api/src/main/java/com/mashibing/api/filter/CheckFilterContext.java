@@ -1,6 +1,5 @@
 package com.mashibing.api.filter;
 
-import com.mashibing.api.form.SingleSendForm;
 import com.mashibing.common.model.StandardSubmit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

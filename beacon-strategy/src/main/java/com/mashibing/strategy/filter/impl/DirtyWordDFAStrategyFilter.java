@@ -1,21 +1,12 @@
 package com.mashibing.strategy.filter.impl;
 
-import com.mashibing.common.constant.CacheConstant;
 import com.mashibing.common.model.StandardSubmit;
-import com.mashibing.strategy.client.BeaconCacheClient;
 import com.mashibing.strategy.filter.StrategyFilter;
 import com.mashibing.strategy.util.DFAUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.wltea.analyzer.core.IKSegmenter;
-import org.wltea.analyzer.core.Lexeme;
 
-import java.io.IOException;
-import java.io.StringReader;
-import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 /**
  * 敏感词校验
