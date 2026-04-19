@@ -8,8 +8,6 @@ import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -30,7 +28,9 @@ public class CacheController {
     @PostMapping(value = "/cache/hmset/{key}")
     public void hmset(@PathVariable(value = "key") String key, @RequestBody Map<String, Object> map) {
         log.info("【缓存模块】 hmset方法，存储key = {}，存储value = {}", key, map);
-        redisClient.putMap(key, map);
+//        因为飞马框架更新，这里的方法名称更改了。
+//        redisClient.putMap(key, map);
+        redisClient.hSet(key,map);
     }
 
     @PostMapping(value = "/cache/set/{key}")
@@ -68,7 +68,9 @@ public class CacheController {
     @GetMapping("/cache/hgetall/{key}")
     public Map hGetAll(@PathVariable(value = "key")String key){
         log.info("【缓存模块】 hGetAll方法，获取key ={} 的数据", key);
-        Map<String, Object> value = redisClient.getMap(key);
+//        因为飞马框架更新，这里的方法名称更改了。
+//        Map<String, Object> value = redisClient.getMap(key);
+        Map<String, Object> value = redisClient.hGetAll(key);
         log.info("【缓存模块】 hGetAll方法，获取key ={} 的数据 value = {}", key,value);
         return value;
     }
@@ -76,7 +78,9 @@ public class CacheController {
     @GetMapping("/cache/hget/{key}/{field}")
     public Object hget(@PathVariable(value = "key")String key,@PathVariable(value = "field")String field){
         log.info("【缓存模块】 hget方法，获取key ={}，field = {}的数据", key,field);
-        Object value = redisClient.getMapItem(key, field);
+//        因为飞马框架更新，这里的方法名称更改了。
+//        Object value = redisClient.getMapItem(key, field);
+        Object value = redisClient.hGet(key, field);
         log.info("【缓存模块】 hget方法，获取key ={}，field = {} 的数据 value = {}", key,field,value);
         return value;
     }
@@ -84,7 +88,9 @@ public class CacheController {
     @GetMapping("/cache/smember/{key}")
     public Set smember(@PathVariable(value = "key")String key){
         log.info("【缓存模块】 smember方法，获取key ={}的数据", key);
-        Set<Object> values = redisClient.sGet(key);
+//        因为飞马框架更新，这里的方法名称更改了。
+//        Set<Object> values = redisClient.sGet(key);
+        Set<Object> values = redisClient.sMembers(key);
         log.info("【缓存模块】 smember方法，获取key ={} 的数据 value = {}", key,values);
         return values;
     }
@@ -139,7 +145,9 @@ public class CacheController {
                         @PathVariable(value = "field") String field,
                         @PathVariable(value = "delta") Long delta){
         log.info("【缓存模块】 hIncrBy方法，自增   key = {},field = {}，number = {}", key,field,delta);
-        Long result = redisClient.incrementMap(key, field, delta);
+//        因为飞马框架更新，这里的方法名称更改了。
+//        Long result = redisClient.incrementMap(key, field, delta);
+        Long result = redisClient.hIncrementBy(key, field, delta);
         log.info("【缓存模块】 hIncrBy方法，自增   key = {},field = {}，number = {},剩余数值为 = {}", key,field,delta,result);
         return result;
     }

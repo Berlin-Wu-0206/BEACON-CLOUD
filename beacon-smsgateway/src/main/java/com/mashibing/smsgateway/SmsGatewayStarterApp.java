@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableDynamicThreadPool
+//@EnableDynamicThreadPool
 @EnableFeignClients
 public class SmsGatewayStarterApp {
 

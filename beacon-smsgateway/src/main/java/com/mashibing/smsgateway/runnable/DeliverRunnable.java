@@ -68,7 +68,8 @@ public class DeliverRunnable implements Runnable {
             }
         }
         //4、发送消息，让搜索模块对之前写入的信息做修改，这里需要做一个死信队列，延迟10s发送修改es信息的消息
-
+        // 声明好具体的交换机和队列后，直接发送report到死信队列即可
+        rabbitTemplate.convertAndSend(RabbitMQConstants.SMS_GATEWAY_NORMAL_EXCHANGE,"",report);
 
     }
 }

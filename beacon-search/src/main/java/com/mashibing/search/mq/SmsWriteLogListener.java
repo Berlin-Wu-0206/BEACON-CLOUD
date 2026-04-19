@@ -6,6 +6,7 @@ import com.mashibing.common.util.JsonUtil;
 import com.mashibing.search.service.SearchService;
 import com.rabbitmq.client.Channel;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class SmsWriteLogListener {
     private SearchService searchService;
 
     private final String INDEX = "sms_submit_log_";
+
 
 
     @RabbitListener(queues = RabbitMQConstants.SMS_WRITE_LOG)

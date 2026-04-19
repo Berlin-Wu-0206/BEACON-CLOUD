@@ -1,6 +1,11 @@
 package com.mashibing.test.entity;
 
 
+import org.apache.commons.lang.StringUtils;
+
+import java.util.Arrays;
+import java.util.List;
+
 public class ClientBusiness {
 
   private long id;
@@ -50,8 +55,12 @@ public class ClientBusiness {
   }
 
 
-  public String getIpAddress() {
-    return ipAddress;
+  public List<String> getIpAddress() {
+    String ips = ipAddress;
+    if(!StringUtils.isEmpty(ips)){
+      return Arrays.asList(ips.split(","));
+    }
+    return null;
   }
 
   public void setIpAddress(String ipAddress) {
