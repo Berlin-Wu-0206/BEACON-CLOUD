@@ -34,8 +34,8 @@ public class IPCheckFilter implements CheckFilter {
         List<String> ip = (List<String>) cacheClient.hget(CacheConstant.CLIENT_BUSINESS + submit.getApikey(), IP_ADDRESS);
         submit.setIp(ip);
 
-        //2. 如果IP白名单为null，直接放行
-        if(ip != null || ip.contains(submit.getRealIP())){
+        //2. 如果IP白名单为null，直接放行，或者包含，修改逻辑判断。
+        if(ip == null || ip.contains(submit.getRealIP())){
             log.info("【接口模块-校验ip】  客户端请求IP合法！");
             return;
         }
