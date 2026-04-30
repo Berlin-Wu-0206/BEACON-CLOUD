@@ -75,4 +75,9 @@ public class StandardReport implements Serializable {
      */
     private Integer resendCount = 0;
 
+    /**
+     * 如果第一次修改操作，这里为false，如果是第二次投递，需要直接记录日志信息
+     */
+    private Boolean reUpdate = false;
+
 }

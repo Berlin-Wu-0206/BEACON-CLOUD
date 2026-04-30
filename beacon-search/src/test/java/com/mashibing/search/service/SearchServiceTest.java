@@ -1,5 +1,6 @@
 package com.mashibing.search.service;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,5 +20,10 @@ public class SearchServiceTest {
     @org.junit.Test
     public void index() throws IOException {
         searchService.index("sms_submit_log_2023","3","{\"clientId\": 3}");
+    }
+
+    @Test
+    public void exists() throws IOException {
+        System.out.println(searchService.exists("sms_submit_log_2023", "2349236478326478236478"));
     }
 }
