@@ -29,7 +29,7 @@ public interface RabbitMQConstants {
     String SMS_PUSH_REPORT = "sms_push_report_topic";
 
     /**
-     * 策略模块推送消息到短信网关模块的队列前缀名称
+     * 策略模块推送消息到短信网关模块的队列前缀名称，后面需要追加通道的id
      */
     String SMS_GATEWAY = "sms_gateway_topic_";
 

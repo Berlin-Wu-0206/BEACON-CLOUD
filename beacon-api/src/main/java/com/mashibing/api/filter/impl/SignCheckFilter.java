@@ -42,7 +42,6 @@ public class SignCheckFilter implements CheckFilter {
     private final String SIGN_ID = "id";
 
 
-
     @Override
     public void check(StandardSubmit submit) {
         log.info("【接口模块-校验签名】   校验ing…………");
