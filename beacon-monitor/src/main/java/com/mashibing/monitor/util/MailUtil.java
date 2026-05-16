@@ -8,6 +8,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
@@ -25,7 +26,7 @@ public class MailUtil {
     @Value("${spring.mail.tos}")
     private String tos;
 
-    @Autowired
+    @Resource
     private JavaMailSender javaMailSender;
 
 
@@ -35,13 +36,30 @@ public class MailUtil {
 
         // 给邮件指定信息
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage);
-        helper.setFrom(from);
         helper.setTo(tos.split(","));
-        helper.setSubject(subject);
-        helper.setText(text);
+        setInfo(subject, text, helper);
 
         // 发送邮件
         javaMailSender.send(mimeMessage);
+    }
+
+    public void sendEmail(String to,String subject,String text) throws MessagingException {
+        // 构建MimeMessage对象
+        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+
+        // 给邮件指定信息
+        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage);
+        helper.setTo(to);
+        setInfo(subject, text, helper);
+
+        // 发送邮件
+        javaMailSender.send(mimeMessage);
+    }
+
+    private void setInfo(String subject, String text, MimeMessageHelper helper) throws MessagingException {
+        helper.setFrom(from);
+        helper.setSubject(subject);
+        helper.setText(text);
     }
 
 
