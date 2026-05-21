@@ -13,6 +13,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.BeanUtils;
 
 /**
+ * 封装任务
  * @author zjw
  * @description
  */
