@@ -50,7 +50,7 @@ public class ShiroRealm extends AuthorizingRealm {
         SmsUser smsUser = userService.findByUsername(username);
 
         //3、查询完毕后，查看用户是否为null，为null就直接返回即可
-        if(smsUser != null){
+        if(smsUser == null){
             // 用户名错误
             return null;
         }
