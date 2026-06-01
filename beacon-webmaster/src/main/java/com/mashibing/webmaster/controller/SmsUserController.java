@@ -6,17 +6,21 @@ import com.mashibing.common.enums.ExceptionEnums;
 import com.mashibing.common.util.R;
 import com.mashibing.common.vo.ResultVO;
 import com.mashibing.webmaster.dto.UserDTO;
+import com.mashibing.webmaster.entity.SmsUser;
+import com.mashibing.webmaster.service.SmsMenuService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 认证，注册等基于用户的操作接口
@@ -29,7 +33,16 @@ import javax.validation.Valid;
 @Slf4j
 public class SmsUserController {
 
+    @Autowired
+    private SmsMenuService menuService;
 
+    /**
+     * 登录功能
+     *
+     * @param userDTO       接收用户登录信息
+     * @param bindingResult 校验参数
+     * @return
+     */
     @PostMapping("/login")
     public ResultVO login(@RequestBody @Valid UserDTO userDTO, BindingResult bindingResult) {
 //        * 1、请求参数的非空校验
@@ -45,7 +58,7 @@ public class SmsUserController {
             return R.error(ExceptionEnums.KAPACHA_ERROR);
         }
 //        * 3、基于用户名和密码做Shiro的认证操作
-        UsernamePasswordToken token = new UsernamePasswordToken(userDTO.getUsername(),userDTO.getPassword());
+        UsernamePasswordToken token = new UsernamePasswordToken(userDTO.getUsername(), userDTO.getPassword());
         token.setRememberMe(userDTO.getRememberMe());
         try {
             SecurityUtils.getSubject().login(token);
@@ -59,4 +72,47 @@ public class SmsUserController {
     }
 
 
+    /**
+     * 查询登录用户的信息
+     *
+     * @return
+     */
+    @GetMapping("/user/info")
+    public ResultVO info() {
+        //1、基于SecurityUtils获取用户信息
+        Subject subject = SecurityUtils.getSubject();
+        SmsUser smsUser = (SmsUser) subject.getPrincipal();
+        if (smsUser == null) {
+            log.info("【获取登录用户信息】 用户未登录！！");
+            return R.error(ExceptionEnums.NOT_LOGIN);
+        }
+
+        //2、封装结果返回
+        Map<String, Object> data = new HashMap<>();
+        data.put("nickname", smsUser.getNickname());
+        data.put("username", smsUser.getUsername());
+        return R.ok(data);
+    }
+
+    /**
+     * 查询当前登录用户的菜单信息
+     * @return
+     */
+    @GetMapping("/menu/user")
+    public ResultVO menuUser() {
+        // 基于用户的id，根据角色表信息查询到菜单表中的详细内容
+        SmsUser smsUser = (SmsUser) SecurityUtils.getSubject().getPrincipal();
+        if (smsUser == null) {
+            log.info("【获取用户菜单信息】 用户未登录！！");
+            return R.error(ExceptionEnums.NOT_LOGIN);
+        }
+        // 封装为具体的下述的这种结构
+        List<Map<String, Object>> data = menuService.findUserMenu(smsUser.getId());
+        if (data == null){
+            log.error("【获取用户菜单信息】 查询用户菜单失败！！ id = {}",smsUser.getId());
+            return R.error(ExceptionEnums.USER_MENU_ERROR);
+        }
+        // 返回结果
+        return R.ok(data);
+    }
 }

@@ -28,7 +28,9 @@ public enum ExceptionEnums {
     SEARCH_UPDATE_ERROR(-20,"修改文档信息失败！"),
 
     KAPACHA_ERROR(-100,"验证码错误！"),
-    AUTHEN_ERROR(-101,"用户名或密码错误！")
+    AUTHEN_ERROR(-101,"用户名或密码错误！"),
+    NOT_LOGIN(-102,"用户未登录！"),
+    USER_MENU_ERROR(-103,"查询用户的菜单信息失败！")
     ;
 
     private Integer code;

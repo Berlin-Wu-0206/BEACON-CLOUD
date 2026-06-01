@@ -21,6 +21,16 @@ public class R {
     }
 
     /**
+     * 成功，有数据
+     * @return
+     */
+    public static ResultVO ok(Object data){
+        ResultVO vo = ok();
+        vo.setData(data);
+        return vo;
+    }
+
+    /**
      * 失败，指定错误信息
      * @param enums
      * @return

@@ -83,10 +83,10 @@ INSERT INTO `sms_menu` VALUES ('6', '新增', '2', null, null, '2', '1000', '202
 INSERT INTO `sms_menu` VALUES ('7', '修改', '2', null, null, '2', '1000', '2023-07-28 08:29:20', '1', '2023-07-28 08:29:36', '1', '0', null, null, null, null);
 INSERT INTO `sms_menu` VALUES ('8', '删除', '2', null, null, '2', '1000', '2023-07-28 08:29:34', '1', '2023-07-28 08:29:37', '1', '0', null, null, null, null);
 -- ----------------------------
--- Table structure for `sys_user_role`
+-- Table structure for `sms_user_role`
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_user_role`;
-CREATE TABLE `sys_user_role` (
+DROP TABLE IF EXISTS `sms_user_role`;
+CREATE TABLE `sms_user_role` (
   `user_id` bigint(11) NOT NULL COMMENT '用户id',
   `role_id` bigint(11) NOT NULL COMMENT '角色id',
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间，默认系统时间',
@@ -98,14 +98,14 @@ CREATE TABLE `sys_user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户角色关系表';
 
 -- ----------------------------
--- Records of sys_user_role
+-- Records of sms_user_role
 -- ----------------------------
-INSERT INTO `sys_user_role` VALUES ('1', '1', '2023-07-28 08:25:41', '1', '2023-07-28 08:25:41', '1', '0');
+INSERT INTO `sms_user_role` VALUES ('1', '1', '2023-07-28 08:25:41', '1', '2023-07-28 08:25:41', '1', '0');
 -- ----------------------------
--- Table structure for `sys_role_menu`
+-- Table structure for `sms_role_menu`
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_role_menu`;
-CREATE TABLE `sys_role_menu` (
+DROP TABLE IF EXISTS `sms_role_menu`;
+CREATE TABLE `sms_role_menu` (
   `role_id` bigint(11) NOT NULL COMMENT '角色id',
   `menu_id` bigint(11) NOT NULL COMMENT '菜单id',
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间，默认系统时间',
@@ -117,13 +117,13 @@ CREATE TABLE `sys_role_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户角色关系表';
 
 -- ----------------------------
--- Records of sys_role_menu
+-- Records of sms_role_menu
 -- ----------------------------
-INSERT INTO `sys_role_menu` VALUES ('1', '1', '2023-07-28 08:30:34', null, '2023-07-28 08:30:34', null, '0');
-INSERT INTO `sys_role_menu` VALUES ('1', '2', '2023-07-28 08:30:38', null, '2023-07-28 08:30:38', null, '0');
-INSERT INTO `sys_role_menu` VALUES ('1', '3', '2023-07-28 08:30:40', null, '2023-07-28 08:30:40', null, '0');
-INSERT INTO `sys_role_menu` VALUES ('1', '4', '2023-07-28 08:30:44', null, '2023-07-28 08:30:44', null, '0');
-INSERT INTO `sys_role_menu` VALUES ('1', '5', '2023-07-28 08:30:46', null, '2023-07-28 08:30:46', null, '0');
-INSERT INTO `sys_role_menu` VALUES ('1', '6', '2023-07-28 08:30:48', null, '2023-07-28 08:30:48', null, '0');
-INSERT INTO `sys_role_menu` VALUES ('1', '7', '2023-07-28 08:30:50', null, '2023-07-28 08:30:50', null, '0');
-INSERT INTO `sys_role_menu` VALUES ('1', '8', '2023-07-28 08:30:50', null, '2023-07-28 08:30:50', null, '0');
+INSERT INTO `sms_role_menu` VALUES ('1', '1', '2023-07-28 08:30:34', null, '2023-07-28 08:30:34', null, '0');
+INSERT INTO `sms_role_menu` VALUES ('1', '2', '2023-07-28 08:30:38', null, '2023-07-28 08:30:38', null, '0');
+INSERT INTO `sms_role_menu` VALUES ('1', '3', '2023-07-28 08:30:40', null, '2023-07-28 08:30:40', null, '0');
+INSERT INTO `sms_role_menu` VALUES ('1', '4', '2023-07-28 08:30:44', null, '2023-07-28 08:30:44', null, '0');
+INSERT INTO `sms_role_menu` VALUES ('1', '5', '2023-07-28 08:30:46', null, '2023-07-28 08:30:46', null, '0');
+INSERT INTO `sms_role_menu` VALUES ('1', '6', '2023-07-28 08:30:48', null, '2023-07-28 08:30:48', null, '0');
+INSERT INTO `sms_role_menu` VALUES ('1', '7', '2023-07-28 08:30:50', null, '2023-07-28 08:30:50', null, '0');
+INSERT INTO `sms_role_menu` VALUES ('1', '8', '2023-07-28 08:30:50', null, '2023-07-28 08:30:50', null, '0');

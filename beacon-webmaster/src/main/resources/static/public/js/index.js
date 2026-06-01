@@ -43,14 +43,15 @@ var vm = new Vue({
         getMenuList: function (event) {
             //$.getJSON("json/menu_user.json?_"+$.now(), function(r){
             $.getJSON("sys/menu/user?_" + $.now(), function (r) {
-                vm.menuList = r.menuList;
-                window.permissions = r.permissions;
+                vm.menuList = r.data;
+                // 先不管这个权限信息
+                // window.permissions = r.permissions;
             });
         },
         getUser: function () {
             //$.getJSON("json/user_info.json?_"+$.now(), function(r){
             $.getJSON("sys/user/info?_" + $.now(), function (r) {
-                vm.user = r.user;
+                vm.user = r.data;
             });
         },
         updatePassword: function () {
