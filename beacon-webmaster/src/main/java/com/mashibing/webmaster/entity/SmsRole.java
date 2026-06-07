@@ -1,8 +1,9 @@
 package com.mashibing.webmaster.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class SmsRole {
+public class SmsRole  implements Serializable {
     private Integer id;
 
     private String name;

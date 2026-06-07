@@ -1,22 +1,28 @@
 package com.mashibing.webmaster.entity;
 
-import java.io.Serializable;
+import lombok.ToString;
+
 import java.util.Date;
 
-public class SmsMenu  implements Serializable {
-    private Integer id;
+@ToString
+public class ClientBusiness {
+    private Long id;
 
-    private String name;
+    private String corpname;
 
-    private Long parentId;
+    private String apikey;
 
-    private String url;
+    private String ipAddress;
 
-    private String icon;
+    private Byte isCallback;
 
-    private Integer type;
+    private String callbackUrl;
 
-    private Integer sort;
+    private String clientLinkname;
+
+    private String clientPhone;
+
+    private String clientFilters;
 
     private Date created;
 
@@ -36,60 +42,76 @@ public class SmsMenu  implements Serializable {
 
     private String extend4;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCorpname() {
+        return corpname;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setCorpname(String corpname) {
+        this.corpname = corpname == null ? null : corpname.trim();
     }
 
-    public Long getParentId() {
-        return parentId;
+    public String getApikey() {
+        return apikey;
     }
 
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
+    public void setApikey(String apikey) {
+        this.apikey = apikey == null ? null : apikey.trim();
     }
 
-    public String getUrl() {
-        return url;
+    public String getIpAddress() {
+        return ipAddress;
     }
 
-    public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress == null ? null : ipAddress.trim();
     }
 
-    public String getIcon() {
-        return icon;
+    public Byte getIsCallback() {
+        return isCallback;
     }
 
-    public void setIcon(String icon) {
-        this.icon = icon == null ? null : icon.trim();
+    public void setIsCallback(Byte isCallback) {
+        this.isCallback = isCallback;
     }
 
-    public Integer getType() {
-        return type;
+    public String getCallbackUrl() {
+        return callbackUrl;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setCallbackUrl(String callbackUrl) {
+        this.callbackUrl = callbackUrl == null ? null : callbackUrl.trim();
     }
 
-    public Integer getSort() {
-        return sort;
+    public String getClientLinkname() {
+        return clientLinkname;
     }
 
-    public void setSort(Integer sort) {
-        this.sort = sort;
+    public void setClientLinkname(String clientLinkname) {
+        this.clientLinkname = clientLinkname == null ? null : clientLinkname.trim();
+    }
+
+    public String getClientPhone() {
+        return clientPhone;
+    }
+
+    public void setClientPhone(String clientPhone) {
+        this.clientPhone = clientPhone == null ? null : clientPhone.trim();
+    }
+
+    public String getClientFilters() {
+        return clientFilters;
+    }
+
+    public void setClientFilters(String clientFilters) {
+        this.clientFilters = clientFilters == null ? null : clientFilters.trim();
     }
 
     public Date getCreated() {

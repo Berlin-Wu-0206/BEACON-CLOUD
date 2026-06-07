@@ -86,7 +86,7 @@ var vm = new Vue({
     created: function () {//
         console.log(11)
         $.get("../sys/clientbusiness/all", function(r){
-            vm.sites = r.sites;
+            vm.sites = r.data;
         });
     }
 });
