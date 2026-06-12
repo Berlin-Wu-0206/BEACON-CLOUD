@@ -1,5 +1,6 @@
 package com.mashibing.common.vo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,7 +17,14 @@ public class ResultVO {
 
     private String msg;
 
+    @JsonInclude(value = JsonInclude.Include.NON_EMPTY)
     private Object data;
+
+    @JsonInclude(value = JsonInclude.Include.NON_EMPTY)
+    private Long total;
+
+    @JsonInclude(value = JsonInclude.Include.NON_EMPTY)
+    private Object rows;
 
 
     public ResultVO(Integer code, String msg) {

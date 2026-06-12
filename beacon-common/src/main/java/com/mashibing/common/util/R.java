@@ -31,6 +31,17 @@ public class R {
     }
 
     /**
+     * 成功，有数据
+     * @return
+     */
+    public static ResultVO ok(Long total ,Object rows){
+        ResultVO vo = ok();
+        vo.setTotal(total);
+        vo.setRows(rows);
+        return vo;
+    }
+
+    /**
      * 失败，指定错误信息
      * @param enums
      * @return

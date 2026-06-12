@@ -39,9 +39,9 @@ $(function () {
                 }},
             {field: 'reportState', title: '状态', formatter: function (v, r, i) {
                     if (v == 0) {
-                        return "成功";
-                    } else if(v == 1) {
                         return "等待";
+                    } else if(v == 1) {
+                        return "成功";
                     } else {
                         return "失败";
                     }
@@ -49,7 +49,7 @@ $(function () {
             },
             {field: 'operatorId', title: '运营商', formatter: function (v, r, i) {
                     if (v == 0) {
-                        return "全网";
+                        return "未知";
                     } else if(v == 1) {
                         return "移动";
                     } else if(v == 2) {
@@ -61,8 +61,8 @@ $(function () {
             },
             {field: 'errorCode', title: '错误码'},
             {field: 'srcNumber', title: '发送号'},
-            {field: 'destMobile', title: '手机号'},
-            {field: 'messageContent', title: '短信内容'}
+            {field: 'mobile', title: '手机号'},
+            {field: 'text', title: '短信内容'}
         ]
     };
     $('#table').bootstrapTable(option);

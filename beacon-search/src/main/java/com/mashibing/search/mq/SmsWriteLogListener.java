@@ -28,9 +28,6 @@ public class SmsWriteLogListener {
     private SearchService searchService;
 
 
-
-
-
     @RabbitListener(queues = RabbitMQConstants.SMS_WRITE_LOG)
     public void consume(StandardSubmit submit, Channel channel, Message message) throws IOException {
         //1、调用搜索模块的添加方法，完成添加操作

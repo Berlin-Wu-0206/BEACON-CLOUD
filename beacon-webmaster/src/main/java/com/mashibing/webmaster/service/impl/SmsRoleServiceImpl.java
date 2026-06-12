@@ -1,9 +1,7 @@
 package com.mashibing.webmaster.service.impl;
 
-import com.mashibing.webmaster.entity.SmsRoleExample;
 import com.mashibing.webmaster.mapper.SmsRoleMapper;
 import com.mashibing.webmaster.service.SmsRoleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
