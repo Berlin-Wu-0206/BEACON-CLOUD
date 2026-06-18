@@ -12,11 +12,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SearchSmsVO {
-    // ok
+    // ok 公司名称
     private String corpname;
 
     // 格式待定
-    private Long sendTimeStr;
+    private String sendTimeStr;
 
     // 修改页面
     private Integer reportState;

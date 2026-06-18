@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -96,15 +97,20 @@ public class SearchController {
         //3、判断返回的total，如果total为0，正常返回
         Long total = Long.parseLong(data.get("total") + "");
         if (total == 0) {
-            return R.ok();
+            return R.ok(0L,null);
         }
         //4、如果数据正常，做返回数据的封装，声明SearchSmsVO的实体类，
         List<Map> list = (List<Map>) data.get("rows");
         List<SearchSmsVO> rows = new ArrayList<>();
-        try {
-            BeanUtils.copyProperties(list, rows);
-        } catch (Exception e) {
-            e.printStackTrace();
+        // 遍历集合，封装数据
+        for (Map row : list) {
+            SearchSmsVO vo = new SearchSmsVO();
+            try {
+                BeanUtils.copyProperties(vo,row);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            rows.add(vo);
         }
 
         //5、响应数据

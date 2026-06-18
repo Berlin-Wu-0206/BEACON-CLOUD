@@ -24,6 +24,10 @@ public class SearchUtils {
         return LocalDateTime.now().getYear() + "";
     }
 
+    public static String getCurrYearIndex(){
+        return INDEX + getYear();
+    }
+
 
     // ThreadLocal操作
     private static ThreadLocal<StandardReport> reportThreadLocal = new ThreadLocal<>();

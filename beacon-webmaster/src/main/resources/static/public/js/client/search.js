@@ -30,13 +30,7 @@ $(function () {
             },
             /*{field: 'totalRepTime', title: '请求次数'},*/
             {field: 'corpname', title: '客户名称'},
-            {field: 'sendTimeStr', title: '发送时间',formatter: function (value, row, index) {
-
-                    if (value){
-                        return formatDate(value)
-                    }
-
-                }},
+            {field: 'sendTimeStr', title: '发送时间'},
             {field: 'reportState', title: '状态', formatter: function (v, r, i) {
                     if (v == 0) {
                         return "等待";
@@ -59,7 +53,7 @@ $(function () {
                     }
                 }
             },
-            {field: 'errorCode', title: '错误码'},
+            {field: 'errorMsg', title: '错误码'},
             {field: 'srcNumber', title: '发送号'},
             {field: 'mobile', title: '手机号'},
             {field: 'text', title: '短信内容'}
