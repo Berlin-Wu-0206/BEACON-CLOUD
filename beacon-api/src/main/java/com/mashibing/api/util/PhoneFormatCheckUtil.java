@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 /**
  * 校验手机号格式的合法性正则
- * @author zjw
+ * @author Berlin
  * @description
  */
 public class PhoneFormatCheckUtil {

@@ -2,7 +2,7 @@ package com.mashibing.common.constant;
 
 /**
  * RabbitMQ中的一些队列信息
- * @author zjw
+ * @author Berlin
  * @description
  */
 public interface RabbitMQConstants {

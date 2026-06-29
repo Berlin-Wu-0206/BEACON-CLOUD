@@ -5,7 +5,7 @@ import com.mashibing.common.enums.ExceptionEnums;
 import com.mashibing.common.exception.ApiException;
 
 /**
- * @author zjw
+ * @author Berlin
  * @description
  */
 public class R {

@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author zjw
+ * @author Berlin
  * @description
  */
 @FeignClient(value = "beacon-cache")

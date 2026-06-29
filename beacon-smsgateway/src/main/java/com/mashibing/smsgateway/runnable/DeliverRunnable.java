@@ -17,7 +17,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.BeanUtils;
 
 /**
- * @author zjw
+ * @author Berlin
  * @description
  */
 public class DeliverRunnable implements Runnable {

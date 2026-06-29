@@ -15,7 +15,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.List;
 
 /**
- * @author zjw
+ * @author Berlin
  * @description  校验请求的ip地址是否是白名单
  */
 @Service(value = "ip")

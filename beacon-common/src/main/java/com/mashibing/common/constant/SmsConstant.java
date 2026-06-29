@@ -2,7 +2,7 @@ package com.mashibing.common.constant;
 
 /**
  * 通用的一些常量
- * @author zjw
+ * @author Berlin
  * @description
  */
 public interface SmsConstant {

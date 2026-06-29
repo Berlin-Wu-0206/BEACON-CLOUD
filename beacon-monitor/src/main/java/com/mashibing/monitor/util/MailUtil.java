@@ -13,8 +13,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 /**
- * @author 郑大仙丶
- * @version V1.0.0
+ * @author Berlin
  */
 @Component
 @RefreshScope

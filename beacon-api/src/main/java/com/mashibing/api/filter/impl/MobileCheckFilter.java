@@ -10,7 +10,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 /**
- * @author zjw
+ * @author Berlin
  * @description  校验手机号的格式合法性
  */
 @Service(value = "mobile")

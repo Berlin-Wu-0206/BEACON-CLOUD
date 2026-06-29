@@ -3,7 +3,7 @@ package com.mashibing.api.vo;
 import lombok.Data;
 
 /**
- * @author zjw
+ * @author Berlin
  * @description
  */
 @Data

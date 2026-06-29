@@ -1,7 +1,7 @@
 package com.mashibing.common.constant;
 
 /**
- * @author zjw
+ * @author Berlin
  * @description
  */
 public interface WebMasterConstants {

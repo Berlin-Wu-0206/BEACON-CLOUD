@@ -5,7 +5,7 @@ import com.mashibing.webmaster.entity.ClientBusiness;
 import java.util.List;
 
 /**
- * @author zjw
+ * @author Berlin
  * @description
  */
 public interface ClientBusinessService {

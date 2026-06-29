@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * 响应前端数据的基本结构
- * @author zjw
+ * @author Berlin
  * @description
  */
 @Data

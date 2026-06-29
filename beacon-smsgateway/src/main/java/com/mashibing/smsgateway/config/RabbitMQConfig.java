@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 针对性的配置，可以采用当前方式~
- * @author zjw
+ * @author Berlin
  * @description
  */
 @Configuration

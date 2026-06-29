@@ -17,7 +17,7 @@ import java.time.ZoneOffset;
 
 /**
  * 1小时发送3条的限流规则
- * @author zjw
+ * @author Berlin
  * @description
  */
 @Service("limitOneHour")

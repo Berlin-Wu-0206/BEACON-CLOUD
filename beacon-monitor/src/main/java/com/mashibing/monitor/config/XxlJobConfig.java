@@ -7,8 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author 郑大仙丶
- * @version V1.0.0
+ * @author Berlin
  */
 @Configuration
 @Slf4j

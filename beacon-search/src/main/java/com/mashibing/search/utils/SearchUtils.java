@@ -5,9 +5,7 @@ import com.mashibing.common.model.StandardReport;
 import java.time.LocalDateTime;
 
 /**
- * @author 郑大仙丶
- * @version V1.0.0
- * @date 2023/6/20 22:54
+ * @author Berlin
  */
 public class SearchUtils {
 

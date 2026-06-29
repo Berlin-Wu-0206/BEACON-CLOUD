@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 用于CMPP的状态回到时，获取核心信息的方式
- * @author zjw
+ * @author Berlin
  * @description
  */
 public class CMPPDeliverMapUtil {

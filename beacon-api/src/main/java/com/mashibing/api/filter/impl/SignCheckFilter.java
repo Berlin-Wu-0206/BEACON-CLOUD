@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author zjw
+ * @author Berlin
  * @description  校验短信的签名
  */
 @Service(value = "sign")

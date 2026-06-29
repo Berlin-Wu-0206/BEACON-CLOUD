@@ -4,7 +4,7 @@ import com.mashibing.common.model.StandardSubmit;
 
 /**
  *
- * @author zjw
+ * @author Berlin
  * @description 做策略模式的父接口
  */
 public interface CheckFilter {

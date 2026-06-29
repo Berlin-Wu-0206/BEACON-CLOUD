@@ -4,7 +4,7 @@ import com.mashibing.webmaster.entity.SmsUser;
 
 /**
  * 用户信息的Service
- * @author zjw
+ * @author Berlin
  * @description
  */
 public interface SmsUserService {

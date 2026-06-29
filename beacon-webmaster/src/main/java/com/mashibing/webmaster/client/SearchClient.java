@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.Map;
 
 /**
- * @author zjw
+ * @author Berlin
  * @description
  */
 @FeignClient(value = "beacon-search")

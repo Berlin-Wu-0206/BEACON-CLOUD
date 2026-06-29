@@ -8,7 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * @author zjw
+ * @author Berlin
  * @description
  */
 @SpringBootApplication

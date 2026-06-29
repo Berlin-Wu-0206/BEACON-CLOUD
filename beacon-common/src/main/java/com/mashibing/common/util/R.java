@@ -7,7 +7,7 @@ import javax.xml.transform.Result;
 
 /**
  * 封装ResultVO的工具
- * @author zjw
+ * @author Berlin
  * @description
  */
 public class R {

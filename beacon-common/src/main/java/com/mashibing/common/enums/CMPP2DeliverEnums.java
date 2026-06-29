@@ -3,7 +3,7 @@ package com.mashibing.common.enums;
 import lombok.Getter;
 
 /**
- * @author zjw
+ * @author Berlin
  * @description
  */
 @Getter

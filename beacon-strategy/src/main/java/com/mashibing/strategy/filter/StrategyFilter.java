@@ -3,7 +3,7 @@ package com.mashibing.strategy.filter;
 import com.mashibing.common.model.StandardSubmit;
 
 /**
- * @author zjw
+ * @author Berlin
  * @description
  */
 public interface StrategyFilter {

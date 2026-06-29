@@ -1,7 +1,7 @@
 package com.mashibing.test.entity;
 
 /**
- * @author zjw
+ * @author Berlin
  * @description
  */
 public class MobileTransfer {
